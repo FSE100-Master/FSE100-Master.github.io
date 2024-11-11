@@ -3,35 +3,30 @@ layout: default
 title: Home
 ---
 
+<!-- Main Menu -->
+<div class="menu">
+    <h1>Fine Motor Skills Training</h1>
+    <h2>Select an Exercise</h2>
+    <ul>
+        <li><a href="exercise1.html">Exercise 1: Tracing Shapes</a></li>
+        <li><a href="exercise2.html">Exercise 2: Dragging Objects</a></li>
+        <li><a href="exercise3.html">Exercise 3: Button Clicking</a></li>
+    </ul>
+</div>
+
+<!-- Remove or comment out the Jekyll blog post loop if not needed -->
+<!--
 <div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
-  </div>
-  {% endfor %}
+    {% for post in paginator.posts %}
+    <div class="post">
+        <h1 class="post-title">
+            <a href="{{ post.url | absolute_url }}">
+                {{ post.title }}
+            </a>
+        </h1>
+        <span class="post-date">{{ post.date | date_to_string }}</span>
+        {{ post.content }}
+    </div>
+    {% endfor %}
 </div>
-
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+-->
