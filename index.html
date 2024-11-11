@@ -1,32 +1,51 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Motor Skills Training</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#home">Home</a>
+            <a href="#games">Games</a>
+        </nav>
+    </header>
 
-<!-- Main Menu -->
-<div class="menu">
-    <h1>Fine Motor Skills Training</h1>
-    <h2>Select an Exercise</h2>
-    <ul>
-        <li><a href="exercise1.html">Exercise 1: Tracing Shapes</a></li>
-        <li><a href="exercise2.html">Exercise 2: Dragging Objects</a></li>
-        <li><a href="exercise3.html">Exercise 3: Button Clicking</a></li>
-    </ul>
-</div>
+    <div class="container">
+        <!-- Left Sidebar with Games List -->
+        <aside class="games-list">
+            <h2>Games</h2>
+            <ul>
+                <li><a href="wordscapes.html">Wordscapes</a></li>
+                <li><a href="memory-game.html">Memory Game</a></li>
+                <li><a href="balloon-pop.html">Balloon Pop</a></li>
+                <li><a href="osu.html">Osu</a></li>
+            </ul>
+        </aside>
 
-<!-- Remove or comment out the Jekyll blog post loop if not needed -->
-<!--
-<div class="posts">
-    {% for post in paginator.posts %}
-    <div class="post">
-        <h1 class="post-title">
-            <a href="{{ post.url | absolute_url }}">
-                {{ post.title }}
-            </a>
-        </h1>
-        <span class="post-date">{{ post.date | date_to_string }}</span>
-        {{ post.content }}
+        <!-- Center Section with Mission Statement -->
+        <main>
+            <h1>Our Mission</h1>
+            <p>
+                Our goal is to help users develop and improve fine motor skills through engaging, interactive games. Each game is designed to promote cognitive and motor skills essential for daily activities and learning.
+            </p>
+        </main>
+
+        <!-- Right Sidebar with Top Games -->
+        <aside class="top-games">
+            <h2>Top Games</h2>
+            <ul>
+                <li>#1 Wordscapes</li>
+                <li>#2 Memory Game</li>
+                <li>#3 Balloon Pop</li>
+                <li>#4 Osu</li>
+                <li>#5 More Games Coming Soon!</li>
+            </ul>
+        </aside>
     </div>
-    {% endfor %}
-</div>
--->
+</body>
+</html>
