@@ -4,9 +4,13 @@ let score = 0;
 let timer = 180; // 2 minutes in seconds
 
 function setup() {
-  createCanvas(1366, 768);
+  createCanvas(windowWidth * .8, windowHeight * .8);
   generateTargetNumber();
   frameRate(60); // 60 frames per second
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth * .8, windowHeight * .8);
 }
 
 function draw() {
@@ -99,7 +103,7 @@ class Balloon {
     this.y = y;
     this.number = number;
     this.speed = random(1, 3);
-    this.size = 40;
+    this.size = 80;
   }
 
   move() {
@@ -110,7 +114,7 @@ class Balloon {
     fill(255, 100, 150);
     ellipse(this.x, this.y, this.size, this.size + 10);
     fill(255);
-    textSize(16);
+    textSize(30);
     textAlign(CENTER, CENTER);
     text(this.number, this.x, this.y);
   }
