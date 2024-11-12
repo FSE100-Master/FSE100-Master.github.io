@@ -1,10 +1,10 @@
 let balloons = [];
 let targetNumber;
 let score = 0;
-let timer = 300; // 5 minutes in seconds
+let timer = 180; // 2 minutes in seconds
 
 function setup() {
-  createCanvas(400, 600);
+  createCanvas(1366, 768);
   generateTargetNumber();
   frameRate(60); // 60 frames per second
 }
