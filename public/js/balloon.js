@@ -4,13 +4,14 @@ let score = 0;
 let timer = 180; // 2 minutes in seconds
 
 function setup() {
-  createCanvas(windowWidth * .8, windowHeight * .8);
+  const canvas = createCanvas(windowWidth * .85, windowHeight * .85);
+  canvas.class('center-canvas');
   generateTargetNumber();
   frameRate(60); // 60 frames per second
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth * .8, windowHeight * .8);
+  resizeCanvas(windowWidth * .85, windowHeight * .85);
 }
 
 function draw() {
