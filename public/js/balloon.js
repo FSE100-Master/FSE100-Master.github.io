@@ -103,7 +103,7 @@ class Balloon {
     this.y = y;
     this.number = number;
     this.speed = random(1, 3);
-    this.size = 80;
+    this.size = 60;
   }
 
   move() {
@@ -114,7 +114,7 @@ class Balloon {
     fill(255, 100, 150);
     ellipse(this.x, this.y, this.size, this.size + 10);
     fill(255);
-    textSize(30);
+    textSize(25);
     textAlign(CENTER, CENTER);
     text(this.number, this.x, this.y);
   }
