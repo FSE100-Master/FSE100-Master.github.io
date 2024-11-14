@@ -5,10 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Osu</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        #gameArea {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            border: 2px solid #4b3b63;
+            margin-top: 20px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+        .circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #4b3b63;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Osu</h1>
-    <p>This is the placeholder page for the Osu game.</p>
-    <a href="index.html" style="text-decoration: none; color: #4b3b63; font-weight: bold;">&larr; Back to Main Menu</a>
+    <h1>Osu Game</h1>
+    <p>Click on the circles as they appear!</p>
+    <p>Score: <span id="score">0</span></p>
+    <div id="gameArea"></div>
+    <a href="index.html" style="text-decoration: none; color: #4b3b63; font-weight: bold; display: block; margin-top: 20px;">&larr; Back to Main Menu</a>
+
+    <script>
+        let score = 0;
+        let gameArea = document.getElementById('gameArea');
+
+        // Function to create a new circle
+        function createCircle() {
+            let circle = document.createElement('div');
+            circle.classList.add('circle');
+
+            // Random position within game area
+            circle.style.left = Math.random() * (gameArea.offsetWidth - 50) + 'px';
+            circle.style.top = Math.random() * (gameArea.offsetHeight - 50) + 'px';
+
+            // Add event listener for clicks
+            circle.onclick = function() {
+                score++;
+                document.getElementById('score').textContent = score;
+                gameArea.removeChild(circle); // Remove the circle once clicked
+                createCircle(); // Generate a new circle
+            };
+
+            gameArea.appendChild(circle);
+
+            // Remove circle if not clicked in time
+            setTimeout(() => {
+                if (gameArea.contains(circle)) {
+                    gameArea.removeChild(circle);
+                    createCircle(); // Generate a new circle
+                }
+            }, 1000); // Circle disappears if not clicked within 1 second
+        }
+
+        // Start the game with the first circle
+        createCircle();
+    </script>
 </body>
 </html>
