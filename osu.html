@@ -42,35 +42,32 @@
         let score = 0;
         let gameArea = document.getElementById('gameArea');
 
-        // Function to create a new circle
         function createCircle() {
             let circle = document.createElement('div');
             circle.classList.add('circle');
 
-            // Random position within game area
+
             circle.style.left = Math.random() * (gameArea.offsetWidth - 50) + 'px';
             circle.style.top = Math.random() * (gameArea.offsetHeight - 50) + 'px';
 
-            // Add event listener for clicks
+ 
             circle.onclick = function() {
                 score++;
                 document.getElementById('score').textContent = score;
-                gameArea.removeChild(circle); // Remove the circle once clicked
-                createCircle(); // Generate a new circle
+                gameArea.removeChild(circle); 
+                createCircle(); 
             };
 
             gameArea.appendChild(circle);
 
-            // Remove circle if not clicked in time
             setTimeout(() => {
                 if (gameArea.contains(circle)) {
                     gameArea.removeChild(circle);
-                    createCircle(); // Generate a new circle
+                    createCircle(); 
                 }
-            }, 1000); // Circle disappears if not clicked within 1 second
+            }, 1000); 
         }
 
-        // Start the game with the first circle
         createCircle();
     </script>
 </body>
