@@ -1,7 +1,7 @@
 let balloons = [];
 let targetNumber;
 let score = 0;
-let timer = 180; // 2 minutes in seconds
+let timer = 120; // 2 minutes in seconds
 
 function setup() {
   const canvas = createCanvas(windowWidth * .85, windowHeight * .85);
