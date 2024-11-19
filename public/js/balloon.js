@@ -2,7 +2,7 @@ let balloons = [];
 let clouds = [];
 let targetNumber;
 let score = 0;
-let timer = 120; // 2 minutes in seconds
+let timer = 60; // 1 minutes in seconds
 
 function setup() {
   const canvas = createCanvas(windowWidth * 0.85, windowHeight * 0.85);
@@ -66,7 +66,6 @@ function mousePressed() {
     if (balloons[i].isClicked(mouseX, mouseY)) {
       if (balloons[i].number === targetNumber) {
         score += 10;
-        timer += 2; // Add 2 seconds for correct tap
         generateTargetNumber();
       } else {
         score -= 5;
