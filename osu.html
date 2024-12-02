@@ -3,20 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Osu Game</title>
+    <title>Osu Game - Fine Motor Skills Training</title>
     <link rel="stylesheet" href="style.css">
     <style>
-     
         body {
             font-family: 'Arial', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #e9ecef;
             margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #8b0000;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+        }
+
+        .container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            background-color: white;
+            border: 2px solid #8b0000;
+            border-radius: 8px;
+            padding: 1rem;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
         }
 
         #gameArea {
@@ -55,46 +86,46 @@
             box-shadow: 0 0 10px rgba(75, 59, 99, 0.5);
         }
 
-        @media (max-width: 768px) {
-            #gameArea {
-                width: 90%;
-                height: 300px;
-            }
-
-            .circle {
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        h1 + p {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
         a {
-            color: #4b3b63;
+            color: #8b0000;
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
+            display: inline-block;
         }
 
         a:hover {
             text-decoration: underline;
         }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
-    <h1>Osu Game</h1>
-    <p>Click on the circles as they appear!</p>
-    <p>Score: <span id="score">0</span></p>
-    <div id="gameArea" aria-label="Game Area for Clicking Circles"></div>
-    <a href="index.html">&larr; Back to Main Menu</a>
+    <header>
+        <h1>Merry Christmas from Fine Motor Skills Training! 🎄</h1>
+        <p>Celebrate the season with fun and engaging games!</p>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <h2>Osu Game</h2>
+            <p>Click on the circles as they appear!</p>
+            <p>Score: <span id="score">0</span></p>
+            <div id="gameArea" aria-label="Game Area for Clicking Circles"></div>
+            <a href="index.html">&larr; Back to Main Menu</a>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fine Motor Skills Training. All rights reserved.</p>
+    </footer>
 
     <script src="osu-game.js"></script>
 </body>
