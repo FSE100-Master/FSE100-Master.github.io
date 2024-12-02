@@ -13,23 +13,6 @@
             color: #333;
         }
 
-        header {
-            background-color: #8b0000;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        header p {
-            margin: 0.5rem 0 0;
-            font-size: 1.2rem;
-        }
-
         .container {
             display: flex;
             flex-direction: column;
@@ -109,13 +92,11 @@
 </head>
 <body>
     <header>
-        <h1>Merry Christmas from Fine Motor Skills Training! 🎄</h1>
-        <p>Celebrate the season with fun and engaging games!</p>
+        <h1 style="display: none;">Fine Motor Skills Training</h1>
     </header>
 
     <div class="container">
         <main class="main-content">
-            <h2>Osu Game</h2>
             <p>Click on the circles as they appear!</p>
             <p>Score: <span id="score">0</span></p>
             <div id="gameArea" aria-label="Game Area for Clicking Circles"></div>
