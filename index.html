@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Snowflakes -->
-    <div class="snowflakes" aria-hidden="true">
+    <div class="snowflakes-border">
         <div class="snowflake">❄</div>
         <div class="snowflake">❅</div>
         <div class="snowflake">❆</div>
@@ -21,39 +20,48 @@
         <p>Celebrate the season with fun and engaging games!</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="games.html">Games</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+            </ul>
+        </aside>
 
-    <main>
-        <h2>Games</h2>
-        <ul>
-            <li><a href="wordscapes.html">Wordscapes</a></li>
-            <li><a href="memory.html">Memory Game</a></li>
-            <li><a href="balloon.html">Balloon Pop</a></li>
-            <li><a href="osu.html">Osu</a></li>
-        </ul>
+        <main class="main-content">
+            <section>
+                <h2>Games</h2>
+                <ul>
+                    <li><a href="wordscapes.html">Wordscapes</a></li>
+                    <li><a href="memory.html">Memory Game</a></li>
+                    <li><a href="balloon.html">Balloon Pop</a></li>
+                    <li><a href="osu.html">Osu</a></li>
+                </ul>
+            </section>
 
-        <h2>Our Mission</h2>
-        <p>
-            Our goal is to help users develop and improve fine motor skills through engaging,
-            interactive games. Each game is designed to promote cognitive and motor skills essential
-            for daily activities and learning.
-        </p>
+            <section>
+                <h2>Our Mission</h2>
+                <p>
+                    Our goal is to help users develop and improve fine motor skills through engaging,
+                    interactive games. Each game is designed to promote cognitive and motor skills essential
+                    for daily activities and learning.
+                </p>
+            </section>
+        </main>
 
-        <h2>Top Games</h2>
-        <ol>
-            <li>Wordscapes</li>
-            <li>Memory Game</li>
-            <li>Balloon Pop</li>
-            <li>Osu</li>
-            <li>More Games Coming Soon!</li>
-        </ol>
-    </main>
+        <aside class="top-games">
+            <h2>Top Games</h2>
+            <ol>
+                <li>Wordscapes</li>
+                <li>Memory Game</li>
+                <li>Balloon Pop</li>
+                <li>Osu</li>
+                <li>More Games Coming Soon!</li>
+            </ol>
+        </aside>
+    </div>
 
     <footer>
         <p>&copy; 2023 Fine Motor Skills Training. All rights reserved.</p>
