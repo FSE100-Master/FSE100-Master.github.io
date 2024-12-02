@@ -1,113 +1,106 @@
-/* General Body Styling */
+/* General Styling */
 body {
     font-family: 'Arial', sans-serif;
-    color: #333;
-    background-color: #f4f4f4;
-    background-image: url('https://via.placeholder.com/1920x1080/8b0000/FFFFFF?text=Christmas+Background'); /* Replace with a festive image */
-    background-size: cover;
-    background-attachment: fixed;
     margin: 0;
-    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Header Styling */
+/* Header */
 header {
-    background-color: rgba(75, 0, 130, 0.8);
+    background-color: #8b0000;
     color: white;
+    text-align: center;
     padding: 1rem 0;
-    margin-bottom: 1rem;
 }
 
 header h1 {
-    font-size: 2.5rem;
     margin: 0;
+    font-size: 2.5rem;
 }
 
 header p {
-    font-size: 1.2rem;
     margin: 0.5rem 0 0;
-}
-
-/* Navigation Styling */
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
     font-size: 1.2rem;
-    font-weight: bold;
 }
 
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Main Content Styling */
-main h2 {
-    color: #4b3b63;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-}
-
-main ul, main ol {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    max-width: 600px;
+/* Layout */
+.container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-main li {
-    margin: 0.5rem 0;
-}
-
-main p {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 1rem;
+.sidebar, .top-games {
+    flex: 1;
+    background-color: white;
+    border: 2px solid #8b0000;
     border-radius: 8px;
+    padding: 1rem;
+    text-align: left;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Styling */
-footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 1rem 0;
-    margin-top: 2rem;
+.main-content {
+    flex: 2;
+    background-color: white;
+    border: 2px solid #8b0000;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Snowflake Animation */
-.snowflakes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
+/* Lists */
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+ul li, ol li {
+    margin: 0.5rem 0;
+}
+
+a {
+    color: #8b0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 1rem;
+}
+
+/* Snowflake Border */
+.snowflakes-border {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-bottom: 1rem;
 }
 
 .snowflake {
-    color: white;
     font-size: 1.5rem;
-    position: absolute;
-    top: -10px;
-    animation: snow 10s linear infinite;
+    animation: float 3s infinite ease-in-out;
 }
 
-@keyframes snow {
-    0% {
+@keyframes float {
+    0%, 100% {
         transform: translateY(0);
-        left: calc(100% * var(--random-x));
     }
-    100% {
-        transform: translateY(100vh);
-        left: calc(100% * var(--random-x));
+    50% {
+        transform: translateY(-10px);
     }
 }
