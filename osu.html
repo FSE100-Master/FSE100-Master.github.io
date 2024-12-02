@@ -33,12 +33,20 @@
             max-width: 800px;
         }
 
+        #timerDisplay {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #8b0000;
+        }
+
         #gameArea {
             position: relative;
-            width: 600px;
+            width: 100%;
+            max-width: 600px;
             height: 400px;
             border: 2px solid #4b3b63;
-            margin-top: 20px;
+            margin: 0 auto;
             overflow: hidden;
             background-color: #f0f0f0;
         }
@@ -97,6 +105,7 @@
 
     <div class="container">
         <main class="main-content">
+            <p id="timerDisplay">Time Left: 30s</p>
             <p>Click on the circles as they appear!</p>
             <p>Score: <span id="score">0</span></p>
             <div id="gameArea" aria-label="Game Area for Clicking Circles"></div>
