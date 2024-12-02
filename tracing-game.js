@@ -10,39 +10,33 @@ let tracerColor = [0, 0, 255]; // Default color is blue
 let colorSelected = false; // To track if the color has been selected
 
 function setup() {
-    // Create the canvas and attach it to the container
+    // Create the canvas and attach it to the 'gameArea' div
     const canvas = createCanvas(800, 600);
-    canvas.parent("main-content");
+    canvas.parent('gameArea');
 
+    // Create shapes for tracing
     createShapes();
 
     // Get the color picker element
-    const colorPicker = document.getElementById("colorPicker");
-    colorPicker.addEventListener("change", () => {
+    const colorPicker = document.getElementById('colorPicker');
+    colorPicker.addEventListener('change', () => {
         tracerColor = getColorFromName(colorPicker.value);
         colorSelected = true;
     });
 }
 
 function getColorFromName(colorName) {
-    switch (colorName) {
-        case "red":
-            return [255, 0, 0];
-        case "darkred":
-            return [139, 0, 0];
-        case "blue":
-            return [0, 0, 255];
-        case "purple":
-            return [128, 0, 128];
-        case "darkgreen":
-            return [0, 100, 0];
-        case "pink":
-            return [255, 105, 180];
-        case "yellow":
-            return [255, 255, 0];
-        default:
-            return [0, 0, 255]; // Default to blue
-    }
+    const colors = {
+        red: [255, 0, 0],
+        darkred: [139, 0, 0],
+        blue: [0, 0, 255],
+        darkblue: [0, 0, 139],
+        purple: [128, 0, 128],
+        darkgreen: [0, 100, 0],
+        pink: [255, 105, 180],
+        yellow: [255, 255, 0],
+    };
+    return colors[colorName] || [0, 0, 255]; // Default to blue
 }
 
 function createShapes() {
@@ -54,12 +48,13 @@ function createShapes() {
 function draw() {
     if (!colorSelected) return; // Wait until the user selects a color
 
-    background(255, 248, 220);
+    background(255, 248, 220); // Weathered paper background
 
     if (currentLevel < shapes.length) {
         let shapeToTrace = shapes[currentLevel];
         shapeToTrace.display();
 
+        // Draw the player's tracing path
         noFill();
         stroke(tracerColor);
         strokeWeight(6);
@@ -69,10 +64,11 @@ function draw() {
         }
         endShape();
 
+        // Check if the trace is complete
         if (!levelComplete && tracePath.length > 0 && shapeToTrace.isTraced(tracePath)) {
             levelComplete = true;
             levelCompleteTime = millis();
-            greatJobStartTime = levelCompleteTime + 1000;
+            greatJobStartTime = levelCompleteTime + 1000; // Delay for "Great Job!" to appear
         }
 
         if (levelComplete && millis() > greatJobStartTime) {
@@ -81,29 +77,32 @@ function draw() {
 
         if (showGreatJob) {
             textSize(32);
-            fill(0, 200, 0);
-            stroke(0, 128, 0);
+            fill(0, 200, 0); // Green for "Great Job!" text fill
+            stroke(0, 128, 0); // Dark Green for "Great Job!" border
             strokeWeight(4);
             textAlign(CENTER, TOP);
-            text("Great Job!", width / 2, 20);
+            text("Great Job!", width / 2, 20); // Display at the top middle
         }
 
-        if (levelComplete && millis() - levelCompleteTime > 3000) {
+        // Proceed to the next level after a delay
+        if (levelComplete && millis() - levelCompleteTime > 5000) {
             currentLevel++;
             if (currentLevel >= shapes.length) {
-                noLoop();
+                noLoop(); // End the game if all levels are complete
             } else {
-                tracePath = [];
+                tracePath = []; // Clear the trace path for the next level
                 levelComplete = false;
-                showGreatJob = false;
+                showGreatJob = false; // Reset for the next level
             }
         }
     } else {
-        background(255, 223, 186);
+        // Final screen after completing all levels
+        background(255, 223, 186); // Trophy background
         textSize(32);
         fill(0, 0, 200);
         textAlign(CENTER, CENTER);
-        text("Congratulations! You completed all levels!", width / 2, height / 2);
+        text("Congratulations! You completed all levels!", width / 2, height / 2 - 150);
+        drawTrophy(width / 2, height / 2); // Draw the fully coded trophy
     }
 }
 
@@ -113,6 +112,19 @@ function mousePressed() {
 
 function mouseDragged() {
     tracePath.push(createVector(mouseX, mouseY));
+}
+
+function drawTrophy(x, y) {
+    fill(184, 134, 11); // Golden color
+    noStroke();
+    rectMode(CENTER);
+    rect(x, y + 50, 100, 20); // Base of the trophy
+    rect(x, y + 65, 80, 20); // Handle part
+    ellipse(x, y - 50, 150, 100); // Trophy cup part
+    rect(x, y, 50, 100); // Trophy stem
+    // Trophy handles
+    ellipse(x - 80, y - 50, 50, 100);
+    ellipse(x + 80, y - 50, 50, 100);
 }
 
 class Shape {
@@ -140,18 +152,8 @@ class CircleShape extends Shape {
 
     display() {
         noFill();
-        stroke(0);
+        stroke(0); // Changed line color to black
         strokeWeight(2);
-        ellipse(this.x, this.y, this.radius * 2);
-    }
-
-    isTraced(tracePath) {
-        let shapePoints = [];
-        for (let angle = 0; angle < TWO_PI; angle += 0.05) {
-            let x = this.x + cos(angle) * this.radius;
-            let y = this.y + sin(angle) * this.radius;
-            shapePoints.push(createVector(x, y));
-        }
-        return this.isTracedCompletely(tracePath, shapePoints);
-    }
-}
+        drawingContext.setLineDash([5
+::contentReference[oaicite:0]{index=0}
+ 
