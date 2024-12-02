@@ -1,12 +1,10 @@
 let score = 0;
 let timeLeft = 30;
 let gameActive = true;
-let gameArea = document.getElementById('gameArea');
-let scoreDisplay = document.getElementById('score');
 
-let timerDisplay = document.createElement('p');
-timerDisplay.textContent = `Time Left: ${timeLeft}s`;
-document.body.insertBefore(timerDisplay, gameArea);
+const gameArea = document.getElementById('gameArea');
+const scoreDisplay = document.getElementById('score');
+const timerDisplay = document.getElementById('timerDisplay'); 
 
 
 function getRandomColor() {
@@ -18,10 +16,11 @@ function getRandomColor() {
     return color;
 }
 
+
 function createCircle() {
     if (!gameActive) return;
 
-    let circle = document.createElement('div');
+    const circle = document.createElement('div');
     circle.classList.add('circle');
 
 
@@ -31,7 +30,8 @@ function createCircle() {
 
     circle.style.backgroundColor = getRandomColor();
 
-    circle.onclick = function() {
+
+    circle.onclick = function () {
         score++;
         scoreDisplay.textContent = score;
         gameArea.removeChild(circle);
@@ -48,8 +48,9 @@ function createCircle() {
     }, 1000);
 }
 
+
 function startTimer() {
-    let timerInterval = setInterval(() => {
+    const timerInterval = setInterval(() => {
         timeLeft--;
         timerDisplay.textContent = `Time Left: ${timeLeft}s`;
 
@@ -65,6 +66,7 @@ function endGame() {
     timerDisplay.textContent = "Time's up!";
     alert(`Game Over! Your score is: ${score}`);
 }
+
 
 startTimer();
 createCircle();
