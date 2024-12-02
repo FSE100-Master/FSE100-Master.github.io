@@ -10,7 +10,8 @@ let tracerColor = [0, 0, 255]; // Default color is blue
 let colorSelected = false; // To track if the color has been selected
 
 function setup() {
-    createCanvas(800, 600);
+    const canvas = createCanvas(800, 600);
+    canvas.parent("game-container"); // Attach canvas to the container
     createShapes();
 
     // Get the color picker element
@@ -43,7 +44,7 @@ function createShapes() {
 function draw() {
     if (!colorSelected) return; // Wait until the user selects a color
 
-    drawWeatheredPaperBackground();
+    background(255, 248, 220);
 
     if (currentLevel < shapes.length) {
         let shapeToTrace = shapes[currentLevel];
@@ -104,14 +105,6 @@ function mouseDragged() {
     tracePath.push(createVector(mouseX, mouseY));
 }
 
-function drawWeatheredPaperBackground() {
-    background(255, 248, 220);
-    stroke(240, 200, 150, 150);
-    for (let y = 40; y < height; y += 40) {
-        line(0, y, width, y);
-    }
-}
-
 class Shape {
     isTracedCompletely(tracePath, shapePoints) {
         let matchedPoints = new Set();
@@ -148,36 +141,6 @@ class CircleShape extends Shape {
             let x = this.x + cos(angle) * this.radius;
             let y = this.y + sin(angle) * this.radius;
             shapePoints.push(createVector(x, y));
-        }
-        return this.isTracedCompletely(tracePath, shapePoints);
-    }
-}
-
-class RectangleShape extends Shape {
-    constructor(x, y, width, height) {
-        super();
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-    }
-
-    display() {
-        noFill();
-        stroke(0);
-        strokeWeight(2);
-        rect(this.x, this.y, this.width, this.height);
-    }
-
-    isTraced(tracePath) {
-        let shapePoints = [];
-        for (let i = 0; i <= this.width; i += 5) {
-            shapePoints.push(createVector(this.x + i, this.y));
-            shapePoints.push(createVector(this.x + i, this.y + this.height));
-        }
-        for (let i = 0; i <= this.height; i += 5) {
-            shapePoints.push(createVector(this.x, this.y + i));
-            shapePoints.push(createVector(this.x + this.width, this.y + i));
         }
         return this.isTracedCompletely(tracePath, shapePoints);
     }
