@@ -5,81 +5,84 @@ body {
     line-height: 1.6;
     background-color: #e9ecef;
     margin: 0;
-}
-
-/* Header Navigation */
-header {
-    background-color: #4b3b63;
-    color: white;
-    padding: 1rem 0;
-}
-
-nav {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    text-align: center;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
+/* Game Area Styling */
+#gameArea {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    border: 2px solid #4b3b63;
+    margin-top: 20px;
+    overflow: hidden;
+    background-color: #f7f9fc;
+    background-image: linear-gradient(45deg, #e0e5ec, #f7f9fc);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+/* Circle Styling */
+.circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #4b3b63;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-nav a:hover {
-    text-decoration: underline;
+@keyframes fadeIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-/* Main Title Styling */
-h1, h2 {
-    color: #4b3b63;
+/* Hover Effect */
+.circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(75, 59, 99, 0.5);
 }
 
-/* Links Styling */
+/* Responsive Design */
+@media (max-width: 768px) {
+    #gameArea {
+        width: 90%;
+        height: 300px;
+    }
+
+    .circle {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Header and Text Styling */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+h1 + p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Link Styling */
 a {
     color: #4b3b63;
     text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
 a:hover {
     text-decoration: underline;
-}
-
-/* Container Styling */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 2rem auto;
-    gap: 2rem;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-}
-
-/* Sidebar Styling */
-.games-list, .top-games {
-    flex: 1;
-    min-width: 250px;
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-main {
-    flex: 2;
-    padding: 1rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
 }
