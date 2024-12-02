@@ -130,3 +130,4 @@ function nextPuzzle() {
     noLoop(); // Stop the game
   }
 }
+
