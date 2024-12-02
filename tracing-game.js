@@ -10,13 +10,15 @@ let tracerColor = [0, 0, 255]; // Default color is blue
 let colorSelected = false; // To track if the color has been selected
 
 function setup() {
+    // Create the canvas and attach it to the container
     const canvas = createCanvas(800, 600);
-    canvas.parent("game-container"); // Attach canvas to the container
+    canvas.parent("main-content");
+
     createShapes();
 
     // Get the color picker element
-    const colorPicker = document.getElementById('colorPicker');
-    colorPicker.addEventListener('change', () => {
+    const colorPicker = document.getElementById("colorPicker");
+    colorPicker.addEventListener("change", () => {
         tracerColor = getColorFromName(colorPicker.value);
         colorSelected = true;
     });
@@ -24,14 +26,22 @@ function setup() {
 
 function getColorFromName(colorName) {
     switch (colorName) {
-        case 'red': return [255, 0, 0];
-        case 'darkred': return [139, 0, 0];
-        case 'blue': return [0, 0, 255];
-        case 'purple': return [128, 0, 128];
-        case 'darkgreen': return [0, 100, 0];
-        case 'pink': return [255, 105, 180];
-        case 'yellow': return [255, 255, 0];
-        default: return [0, 0, 255]; // Default to blue
+        case "red":
+            return [255, 0, 0];
+        case "darkred":
+            return [139, 0, 0];
+        case "blue":
+            return [0, 0, 255];
+        case "purple":
+            return [128, 0, 128];
+        case "darkgreen":
+            return [0, 100, 0];
+        case "pink":
+            return [255, 105, 180];
+        case "yellow":
+            return [255, 255, 0];
+        default:
+            return [0, 0, 255]; // Default to blue
     }
 }
 
