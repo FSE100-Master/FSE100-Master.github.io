@@ -15,7 +15,7 @@ function setup() {
     let colors = ['red', 'darkred', 'blue', 'darkblue', 'purple', 'darkgreen', 'pink', 'yellow']; 
     colorSelect = createSelect(); 
     colors.forEach(color => colorSelect.option(color)); 
-    colorSelect.position(100, 500); 
+    colorSelect.position(1000, 250); 
     colorSelect.changed(() => { 
         tracerColor = getColorFromName(colorSelect.value()); 
         colorSelected = true; // Mark color as selected 
